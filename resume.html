@@ -28,50 +28,190 @@
             width: 21cm;
             height: 29.7cm;
             margin: 0;
-            padding: 1cm 1.5cm;
             box-sizing: border-box;
 
             font-family: 'Open Sans', sans-serif;
+            font-size: 12pt;
+            line-height: 1.25;
+        }
+
+        @media print {
+            html {
+                background-color: white;
+            }
         }
 
         h1, h2, h3 {
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
 
-        .header {
+        h1 {
+            margin-top: 0;
+            font-size: 2rem;
+        }
 
+        h2 {
+            font-size: 1.3rem;
+        }
+
+        h3 {
+            margin: 0;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        a, a:active, a:visited {
+            color: blue;
+        }
+
+        .root {
+            height: 100%;
+            display: grid;
+            grid-template-columns: min-content 1fr;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            padding: 0.75cm;
+            gap: 0.5cm;
+            background: #f0f0f0;
+        }
+
+        .sidebar a {
+            color: inherit;
+        }
+
+        .main {
+            padding: 0.75cm;
+        }
+
+        .photo img {
+            max-width: 100%;
+        }
+
+        .name {
+            width: max-content;
+        }
+
+        .name h1, .name h2 {
+            margin: 0;
+        }
+
+        table {
+            margin: 0;
+        }
+        
+        ul {
+            padding-left: 0;
+            text-indent: 0.5em;
+        }
+
+        ul li {
+            list-style: '– ' inside;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="photo">
-            <img src="" alt="photo">
+    <div class="root">
+        <div class="sidebar">
+            <div class="photo">
+                <img src="photo.png" alt="Фотография">
+            </div>
+            <div class="name">
+                <h2>Вадим Сапрыкин</h1>
+            </div>
+            <div class="links">
+                <table>
+                    <tr>
+                        <td>Сайт: </td>
+                        <td><a href="https://sprkweb.dev">sprkweb.dev</a></td>
+                    </tr>
+                    <tr>
+                        <td>GitHub: </td>
+                        <td><a href="https://github.com/sprkweb">sprkweb</a></td>
+                    </tr>
+                    <tr>
+                        <td>Email: </td>
+                        <td><a href="mailto:sprkweb@ya.ru">sprkweb@ya.ru</a></td>
+                    </tr>
+                    <tr>
+                        <td>Telegram: </td>
+                        <td><a href="https://t.me/saqew">@saqew</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <p>22 года (родился 08 июля 2000)</p>
+                <p>Санкт-Петербург</p>
+                <p>Гражданство: Россия</p>
+            </div>
+            <div>
+                <h3>Иностранные языки:</h3>
+                <p>
+                    Английский: <br>
+                    Upper-Intermediate, технический
+                </p>
+            </div>
+            <div>
+                <h3>Знания и навыки:</h3>
+                <ul>
+                    <li>Python, Go</li>
+                    <li>JavaScript, TypeScript</li>
+                    <li>Linux, Git, Docker</li>
+                    <li>Опыт построения API: REST, gRPC, GraphQL</li>
+                    <li>SQL, PostgreSQL, MongoDB</li>
+                    <li>HTML5, CSS3, SVG</li>
+                    <li>Основные алгоритмы и структуры данных</li>
+                    <li>Устройство сетей</li>
+                    <li>Умение и желание писать качественный код (ООП, SOLID, DRY, KISS…)</li>
+                    <li>Написание документации и тестов к коду, в т. ч. TDD, BDD</li>
+                </ul>
+            </div>
         </div>
-        <div class="name">
-            <h1>Вадим Сапрыкин</h1>
-            <h2>Веб-разработчик</h2>
+    
+        <div class="main">
+            <div class="section">
+                <h1>Веб-разработчик</h1>
+                <p>Веб-разработчик, который любит изучать новые для себя технологии, концепты, идеи и методы, применять их на практике и потом видеть, как труд приносит результат.</p>
+                <p>С 2011 года увлекался программированием в качестве хобби и делал разнообразные проекты в open source или как фрилансер.</p>
+            </div>
+            <div class="section">
+                <h2>Опыт работы</h2>
+                <h3>Программист в НеоБИТ: март — май 2022</h3>
+                <p>Разработка микросервисов на Go, gRPC с использованием Python и проектирование баз данных на MongoDB</p>
+            </div>
+            <div class="section">
+                <h2>Образование</h2>
+                <h3>Университет ИТМО: 2022</h3>
+                <p>Высшее образование · Бакалавриат</p>
+                <p>Факультет безопасности информационных технологий</p>
+                <p>Специальность: Информационная безопасность</p>
+            </div>
+            <div>
+                <h2>Примеры open-source проектов</h2>
+                <h3>Commenti: 2021</h3>
+                <p><a href="https://github.com/sprkweb/commenti">https://github.com/sprkweb/commenti</a></p>
+                <p><a href="https://github.com/sprkweb/commenti_server">https://github.com/sprkweb/commenti_server</a></p>
+                <ul>
+                    <li>Система встроенных комментариев (как Disqus): древовидных (как в Reddit, с динамической подгрузкой), c Markdown и локализацией;</li>
+                    <li>Back-end: self-hosted (через Docker Compose) Python, Django, PostgreSQL, GraphQL API;</li>
+                    <li>Front-end: Svelte, TypeScript (~54 kB min+gz).</li>
+                </ul>
+
+                <h3>Tarona: 2015–2017</h3>
+                <p><a href="https://github.com/sprkweb/tarona/ ">https://github.com/sprkweb/tarona/</a></p>
+                <ul>
+                    <li>Движок стратегической браузерной игры;</li>
+                    <li>Ruby, JavaScript, отрисовка через SVG;</li>
+                    <li>Клиент-серверная event-driven архитектура со связью через WebSockets;</li>
+                    <li>Полное покрытие генерируемой документацией и тестами (BDD), для бэкэнда (RSpec, Yard) и для фронтэнда (Jasmine, JSDoc, headless браузер PhantomJS);</li>
+                    <li>Кроссплатформенность, переносимость через JRuby + Bundler.</li>
+                </ul>
+            </div>
         </div>
-        <div class="links">
-            <table>
-                <tr>
-                    <td>Сайт:</td>
-                    <td><a href="https://sprkweb.dev">sprkweb.dev</a></td>
-                </tr>
-                <tr>
-                    <td>GitHub:</td>
-                    <td><a href="https://github.com/sprkweb">github.com/sprkweb</a></td>
-                </tr>
-                <tr>
-                    <td>Email:</td>
-                    <td><a href="mailto:sprkweb@ya.ru">sprkweb@ya.ru</a></td>
-                </tr>
-                <tr>
-                    <td>Telegram:</td>
-                    <td><a href="https://t.me/saqew">@saqew</a></td>
-                </tr>
-            </table>
-        </div>
-    </div> 
+    </div>
 </body>
 </html>
